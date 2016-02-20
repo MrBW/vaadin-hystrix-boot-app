@@ -14,6 +14,7 @@ import com.baustoffe.online.de.entities.MandantTyp;
 import com.baustoffe.online.de.repository.BauhuetteRepository;
 import com.baustoffe.online.de.repository.PraktischRepository;
 import com.baustoffe.online.de.repository.UbiRepository;
+import com.baustoffe.online.de.scheduler.ServiceCallScheduler;
 import com.google.common.eventbus.EventBus;
 
 @SpringBootApplication
@@ -24,6 +25,9 @@ public class BaushopApplication {
 
     @Autowired
     private DataGenerator generator;
+
+    @Autowired
+    private ServiceCallScheduler serviceCallScheduler;
 
     public static void main(String[] args) {
         SpringApplication.run(BaushopApplication.class, args);
