@@ -30,8 +30,6 @@ public class HystrixDashboardView extends HorizontalLayout implements View {
 
     private final ChaosMonkey chaosMonkey;
 
-    private boolean active = false;
-
     private BauhuetteRemoteService bauhuetteRemoteService;
 
     public HystrixDashboardView(BauhuetteRemoteService bauhuetteRemoteService, PraktischRemoteService praktischRemoteService,
@@ -42,21 +40,13 @@ public class HystrixDashboardView extends HorizontalLayout implements View {
         this.chaosMonkey = chaosMonkey;
 
         Button start = new Button("Starte Anfragen...");
-        Button stop = new Button("Stoppe Anfragen...");
 
         start.addClickListener(event -> starteThreads());
-        stop.addClickListener(event -> stoppeThreads());
 
         setImmediate(true);
 
         addComponent(start);
-        // addComponent(stop);
 
-    }
-
-    private void stoppeThreads() {
-        log.debug("Disable Calls");
-        this.active = false;
     }
 
     private void starteThreads() {
